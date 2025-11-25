@@ -10,6 +10,10 @@
     --card-hover-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 /* --- Base Styles and Reset --- */
 body {
     font-family: 'Inter', sans-serif;
@@ -19,7 +23,6 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     transition: background-color 0.3s, color 0.3s;
-    scroll-behavior: smooth;
 }
 
 .container {
