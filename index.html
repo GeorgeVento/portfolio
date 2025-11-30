@@ -117,7 +117,7 @@
         <div class="container">
             <h2>Get In Touch</h2>
             <div class="contact-wrapper">
-                <form id="contactForm" class="contact-form">
+                <form id="contactForm" class="contact-form" action="https://formsubmit.co/g.l.ventouratos@gmail.com" method="POST">
                     <div class="form-group">
                         <label for="name">Your Name</label>
                         <input type="text" id="name" name="name" required placeholder="Enter your full name">
@@ -139,6 +139,8 @@
                     </div>
 
                     <button type="submit" class="submit-button">Send Message</button>
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="success.html">
                 </form>
             </div>
         </div>
@@ -163,7 +165,7 @@
 
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
-                console.log('Contact form submit triggered');
+                console.log('Contact form submit triggered (EmailJS -> FormSubmit sequence)');
 
                 if (typeof emailjs === 'undefined') {
                     console.error('EmailJS library not loaded');
@@ -182,18 +184,30 @@
                     submitBtn.textContent = 'Sending...';
                 }
 
-                const params = { name: name, subject: subject, email: email, message: message };
-                console.log('Sending EmailJS with params:', params);
+                // Prepare params for owner and sender (adjust template fields as needed)
+                const ownerParams = { to_email: 'g.l.ventouratos@gmail.com', from_name: name, from_email: email, subject: subject, message: message };
+                const senderParams = { to_email: email, user_name: name, user_email: email, user_subject: subject, user_message: message };
 
-                // Explicitly pass the public key as 4th argument as a fallback
-                emailjs.send('service_s5ydl3k', 'template_zn299iu', params, '1SQJnbQyaGHq7IlAa')
-                .then(function(response) {
-                    console.log('EmailJS send success:', response);
-                    // Use local relative path for success.html so both local and deployed work
-                    window.location.href = 'success.html';
-                }).catch(function(error) {
-                    console.error('EmailJS send error:', error);
-                    alert('Υπήρξε σφάλμα κατά την αποστολή. Δες την κονσόλα για λεπτομέρειες.');
+                console.log('Sending EmailJS to owner and sender:', ownerParams, senderParams);
+
+                // Send both EmailJS emails, then submit the form to FormSubmit so it also receives the POST and redirects to success.html
+                Promise.allSettled([
+                    emailjs.send('service_s5ydl3k', 'template_zn299iu', ownerParams, '1SQJnbQyaGHq7IlAa'),
+                    emailjs.send('service_s5ydl3k', 'template_zn299iu', senderParams, '1SQJnbQyaGHq7IlAa')
+                ]).then(function(results) {
+                    console.log('EmailJS results:', results);
+                    // Regardless of EmailJS success/failure, submit the form to FormSubmit to ensure owner receives via FormSubmit too and redirect occurs
+                    try {
+                        // Programmatic submit will POST the form and navigate to FormSubmit's redirect (_next)
+                        form.submit();
+                    } catch (err) {
+                        console.error('Form submit failed:', err);
+                        alert('Η αποστολή EmailJS ολοκληρώθηκε, αλλά η προώθηση στη σελίδα επιτυχίας απέτυχε.');
+                    }
+                }).catch(function(err) {
+                    console.error('Unexpected error during EmailJS sends:', err);
+                    // Try to submit to FormSubmit anyway
+                    try { form.submit(); } catch (e) { console.error('Form submit failed after EmailJS error:', e); alert('Σφάλμα αποστολής. Δες κονσόλα.'); }
                 }).finally(function() {
                     if (submitBtn) {
                         submitBtn.disabled = false;
