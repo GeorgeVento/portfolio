@@ -112,12 +112,14 @@
                 </div>
         </div>
     </section>
-<section id="contact" class="section contact-section">
+
+    <section id="contact" class="section contact-section">
     <div class="container">
         <h2>Get In Touch</h2>
         <div class="contact-wrapper">
-            <form id="contactForm" class="contact-form" 
-                  action="https://formsubmit.co/g.l.ventouratos@gmail.com" 
+
+            <form id="contactForm" class="contact-form"
+                  action="https://formsubmit.co/g.l.ventouratos@gmail.com"
                   method="POST">
 
                 <div class="form-group">
@@ -142,14 +144,17 @@
 
                 <button type="submit" class="submit-button">Send Message</button>
 
-                <!-- Hidden FormSubmit settings -->
+                <!-- Required hidden fields -->
                 <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_replyto" value="">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_replyto" value="%email%">
                 <input type="hidden" name="_next" value="success.html">
             </form>
+
         </div>
     </div>
 </section>
+
 
     <footer>
         <div class="container">
