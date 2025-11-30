@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/index.min.js"></script>
 </head>
 <body>
 
@@ -139,7 +140,8 @@
                     </div>
 
                     <button type="submit" class="submit-button">Send Message</button>
-                    
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://georgevento.github.io/portfolio/success.html">
 
                 </form>
             </div>
@@ -151,8 +153,6 @@
             <p>&copy; 2025 George-Leonidas Ventouratos. Made with <i class="fas fa-heart"></i> and Code.</p>
         </div>
     </footer>
-
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/index.min.js"></script>
 
     <script>
         // Initialize EmailJS (public key)
