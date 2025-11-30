@@ -112,48 +112,50 @@
                 </div>
         </div>
     </section>
+<section id="contact" class="section contact-section">
+    <div class="container">
+        <h2>Get In Touch</h2>
+        <div class="contact-wrapper">
+            <form id="contactForm" class="contact-form" 
+                  action="https://formsubmit.co/g.l.ventouratos@gmail.com" 
+                  method="POST">
 
-    <section id="contact" class="section contact-section">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <div class="contact-wrapper">
-                <form id="contactForm" class="contact-form" action="https://formsubmit.co/g.l.ventouratos@gmail.com" method="POST">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
-                    </div>
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
 
-                    <div class="form-group">
-                        <label for="email">Your Email</label>
-                        <input type="email" id="email" name="email" required placeholder="Enter your email address">
-                    </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                </div>
 
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required placeholder="What is this about?">
-                    </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required placeholder="What is this about?">
+                </div>
 
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="6" required placeholder="Write your message here..."></textarea>
-                    </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required placeholder="Write your message here..."></textarea>
+                </div>
 
-                    <button type="submit" class="submit-button">Send Message</button>
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_replyto" value="email">
-                    <input type="hidden" name="_next" value="success.html">
-                </form>
-            </div>
+                <button type="submit" class="submit-button">Send Message</button>
+
+                <!-- Hidden FormSubmit settings -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_replyto" value="">
+                <input type="hidden" name="_next" value="success.html">
+            </form>
         </div>
-    </section>
+    </div>
+</section>
 
     <footer>
         <div class="container">
             <p>&copy; 2025 George-Leonidas Ventouratos. Made with <i class="fas fa-heart"></i> and Code.</p>
         </div>
     </footer>
-
-    
 
 </body>
 </html>
