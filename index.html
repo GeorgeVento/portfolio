@@ -140,6 +140,7 @@
 
                     <button type="submit" class="submit-button">Send Message</button>
                     <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_replyto" value="email">
                     <input type="hidden" name="_next" value="success.html">
                 </form>
             </div>
@@ -152,71 +153,7 @@
         </div>
     </footer>
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/index.min.js"></script>
-    <script>
-        // Initialize EmailJS (public key)
-        if (typeof emailjs !== 'undefined' && emailjs.init) {
-            emailjs.init('1SQJnbQyaGHq7IlAa');
-        }
-
-        (function() {
-            const form = document.getElementById('contactForm');
-            if (!form) return;
-
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                console.log('Contact form submit triggered (EmailJS -> FormSubmit sequence)');
-
-                if (typeof emailjs === 'undefined') {
-                    console.error('EmailJS library not loaded');
-                    alert('Σφάλμα: Η βιβλιοθήκη EmailJS δεν φορτώθηκε. Άνοιξε την κονσόλα για λεπτομέρειες.');
-                    return;
-                }
-
-                const name = document.getElementById('name').value || '';
-                const email = document.getElementById('email').value || '';
-                const subject = document.getElementById('subject').value || '';
-                const message = document.getElementById('message').value || '';
-
-                const submitBtn = form.querySelector('button[type="submit"]');
-                if (submitBtn) {
-                    submitBtn.disabled = true;
-                    submitBtn.textContent = 'Sending...';
-                }
-
-                // Prepare params for owner and sender (adjust template fields as needed)
-                const ownerParams = { to_email: 'g.l.ventouratos@gmail.com', from_name: name, from_email: email, subject: subject, message: message };
-                const senderParams = { to_email: email, user_name: name, user_email: email, user_subject: subject, user_message: message };
-
-                console.log('Sending EmailJS to owner and sender:', ownerParams, senderParams);
-
-                // Send both EmailJS emails, then submit the form to FormSubmit so it also receives the POST and redirects to success.html
-                Promise.allSettled([
-                    emailjs.send('service_s5ydl3k', 'template_zn299iu', ownerParams, '1SQJnbQyaGHq7IlAa'),
-                    emailjs.send('service_s5ydl3k', 'template_zn299iu', senderParams, '1SQJnbQyaGHq7IlAa')
-                ]).then(function(results) {
-                    console.log('EmailJS results:', results);
-                    // Regardless of EmailJS success/failure, submit the form to FormSubmit to ensure owner receives via FormSubmit too and redirect occurs
-                    try {
-                        // Programmatic submit will POST the form and navigate to FormSubmit's redirect (_next)
-                        form.submit();
-                    } catch (err) {
-                        console.error('Form submit failed:', err);
-                        alert('Η αποστολή EmailJS ολοκληρώθηκε, αλλά η προώθηση στη σελίδα επιτυχίας απέτυχε.');
-                    }
-                }).catch(function(err) {
-                    console.error('Unexpected error during EmailJS sends:', err);
-                    // Try to submit to FormSubmit anyway
-                    try { form.submit(); } catch (e) { console.error('Form submit failed after EmailJS error:', e); alert('Σφάλμα αποστολής. Δες κονσόλα.'); }
-                }).finally(function() {
-                    if (submitBtn) {
-                        submitBtn.disabled = false;
-                        submitBtn.textContent = 'Send Message';
-                    }
-                });
-            });
-        })();
-    </script>
+    
 
 </body>
 </html>
