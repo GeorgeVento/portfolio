@@ -158,8 +158,8 @@
         // Initialize EmailJS
         emailjs.init('1SQJnbQyaGHq7IlAa');
 
-        // Handle form submission
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        // Handle form submission using EmailJS for both owner notification and sender confirmation
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
             const name = document.getElementById('name').value;
@@ -167,35 +167,38 @@
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
 
-            // Send email via FormSubmit (to you)
-            const formData = new FormData(this);
-            try {
-                const response = await fetch('https://formsubmit.co/g.l.ventouratos@gmail.com', {
-                    method: 'POST',
-                    body: formData
-                });
+            const submitBtn = this.querySelector('button[type="submit"]');
+            if (submitBtn) submitBtn.disabled = true;
 
-                if (response.ok) {
-                    // Send confirmation email to user via EmailJS
-                    emailjs.send('service_s5ydl3k', 'template_zn299iu', {
-                        user_name: name,
-                        user_email: email,
-                        user_subject: subject,
-                        user_message: message
-                    }).then(() => {
-                        // Redirect to success page
-                        window.location.href = 'https://georgevento.github.io/portfolio/success.html';
-                    }).catch((err) => {
-                        console.error('EmailJS error:', err);
-                        window.location.href = 'https://georgevento.github.io/portfolio/success.html';
-                    });
-                } else {
-                    alert('There was an error sending your message. Please try again.');
-                }
-            } catch (err) {
-                console.error('Form submission error:', err);
-                alert('There was an error. Please try again.');
-            }
+            // Prepare params. Your EmailJS template should reference these variables.
+            const ownerParams = {
+                to_email: 'g.l.ventouratos@gmail.com',
+                from_name: name,
+                from_email: email,
+                subject: subject,
+                message: message
+            };
+
+            const senderParams = {
+                to_email: email,
+                user_name: name,
+                user_email: email,
+                user_subject: subject,
+                user_message: message
+            };
+
+            // Send two emails via EmailJS: one to you (owner) and one to the sender (confirmation)
+            Promise.all([
+                emailjs.send('service_s5ydl3k', 'template_zn299iu', ownerParams),
+                emailjs.send('service_s5ydl3k', 'template_zn299iu', senderParams)
+            ]).then(() => {
+                window.location.href = 'https://georgevento.github.io/portfolio/success.html';
+            }).catch((err) => {
+                console.error('EmailJS send error:', err);
+                alert('Υπήρξε σφάλμα κατά την αποστολή των μηνυμάτων. Προσπάθησε ξανά.');
+            }).finally(() => {
+                if (submitBtn) submitBtn.disabled = false;
+            });
         });
     </script>
 </body>
