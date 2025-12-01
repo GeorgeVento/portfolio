@@ -163,42 +163,45 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script>
-        // Initialize EmailJS
-        emailjs.init("1SQJnbQyaGHq7IlAa");
 
+    <script>
+        // ---- Initialize EmailJS correctly ----
+        emailjs.init({
+            publicKey: "1SQJnbQyaGHq7IlAa"
+        });
+    
         function sendEmail(e) {
             e.preventDefault();
-
+    
             // Honeypot check
-            if(document.getElementById("_honey").value !== "") {
-            // Bot detected
-            console.log("Bot detected!");
-            return;
+            if (document.getElementById("_honey").value !== "") {
+                console.log("Bot detected!");
+                return;
             }
-
-            // reCAPTCHA check (προαιρετικό)
-            const captchaResponse = grecaptcha.getResponse();
-            if(captchaResponse.length === 0) {
+    
+            // reCAPTCHA check
+            const captcha = grecaptcha.getResponse();
+            if (captcha.length === 0) {
                 alert("Please complete the CAPTCHA.");
                 return;
             }
-
+    
+            // Params that must match EmailJS template
             const params = {
                 name: document.getElementById("name").value,
                 email: document.getElementById("email").value,
                 subject: document.getElementById("subject").value,
                 message: document.getElementById("message").value
             };
-
+    
             emailjs.send("service_s5ydl3k", "template_zn299iu", params)
-            .then(function() {
-                alert("✅ Το μήνυμα στάλθηκε με επιτυχία!");
-                document.getElementById("contactForm").reset();
-                grecaptcha.reset();
-            }, function(error) {
+            .then(() => {
+                // Redirect to success page
+                window.location.href = "success.html";
+            })
+            .catch((error) => {
                 alert("❌ Κάτι πήγε στραβά. Δοκίμασε ξανά.");
-                console.log(error);
+                console.error(error);
             });
         }
     </script>
