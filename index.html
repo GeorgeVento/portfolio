@@ -196,11 +196,20 @@
                 alert("✅ Το μήνυμα στάλθηκε με επιτυχία!");
                 document.getElementById("contactForm").reset();
                 window.location.href = "success.html";
-            }, function(error) {
-                alert("❌ Κάτι πήγε στραβά. Δοκίμασε ξανά.");
-                console.log(error);
-                grecaptcha.reset();
-            });
+            }, emailjs.send("service_s5ydl3k", "template_zn299iu", params)
+.then(function() {
+    // 1. ΔΕΝ επαναφέρουμε τη φόρμα, γιατί φεύγουμε από τη σελίδα
+    // 2. ΔΕΝ εμφανίζουμε alert, γιατί πάμε σε σελίδα επιτυχίας
+    
+    // ΑΜΕΣΗ ΑΝΑΚΑΤΕΥΘΥΝΣΗ
+    window.location.href = "success.html"; 
+    
+}, function(error) {
+    // Αν αποτύχει η αποστολή (ή αν αποτύχει η επικοινωνία στο GitHub Pages)
+    alert("❌ Κάτι πήγε στραβά. Δοκίμασε ξανά.");
+    console.log(error);
+    grecaptcha.reset();
+});
         }
     </script>
 </body>
