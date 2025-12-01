@@ -559,7 +559,7 @@ footer .fa-heart {
 }
 
 .form-group textarea {
-    resize: none;
+    resize: vertical;
     min-height: 150px;
     font-weight: 500;
 }
