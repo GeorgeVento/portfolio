@@ -35,7 +35,7 @@
             <a href="#projects" class="cta-button">View My Projects</a>
         </div>
     </section>
-    
+    
     <section id="about" class="section">
         <div class="container">
             <h2>About Me</h2>
@@ -100,6 +100,7 @@
                         <h3>Pomodoro Timer (Soon)</h3>
                         <span class="tech-tag">Html</span>
                         <span class="tech-tag">Css</span>
+                        <span class="tech-tag">JavaScript</span>
                     </div>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam voluptate ut beatae inventore itaque error adipisci, reprehenderit obcaecati at repudiandae voluptatibus similique molestiae deleniti quisquam possimus libero, mollitia cumque tempora.</p>
                     <a href="[Link to Project 3 GitHub Repo]" target="_blank" class="project-link">
@@ -138,7 +139,11 @@
                 <textarea name="message" id="message" rows="6" required placeholder="Message"></textarea>
                 </div>
 
-                                                
+                                <input type="text" name="_honey" id="_honey" style="display:none">
+
+                                <div id="recaptcha-wrapper">
+                <div class="g-recaptcha" data-sitekey="6Lf_nx0sAAAAADfKhhj8TYTdJLfe-9C4pr2MKPIr"></div>
+                </div>
 
                 <button type="submit" class="submit-button">Send Message</button>
 
@@ -154,25 +159,53 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-        <script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <script>
         // Εκκίνηση του EmailJS με το Public Key
-        emailjs.init("1SQJnbQyaGHq7IlAa"); 
-        
+        emailjs.init("1SQJnbQyaGHq7IlAa"); 
+        
         function sendEmail(e) {
             e.preventDefault(); // Αποτροπή της default αποστολής φόρμας
     
-            // 3. Αποστολή μέσω sendForm (Καθαρή αποστολή)
+            // 1. Έλεγχος Honeypot 🍯
+            if (document.getElementById("_honey").value !== "") {
+                console.log("Bot detected (Honeypot filled). Submission blocked.");
+                return; 
+            }
+            
+            // 2. Έλεγχος reCAPTCHA
+            // Ελέγχει αν το grecaptcha έχει φορτωθεί και αν έχει παραχθεί token.
+            if (typeof grecaptcha !== 'undefined' && grecaptcha.getResponse().length === 0) {
+                alert("Παρακαλώ, ολοκληρώστε το CAPTCHA.");
+                return;
+            } else if (typeof grecaptcha === 'undefined') {
+                console.error("reCAPTCHA object not found. Submission will proceed without CAPTCHA check.");
+            }
+            
+            // 3. Αποστολή μέσω sendForm (χρησιμοποιούμε το ID της φόρμας)
             emailjs.sendForm("service_s5ydl3k", "template_zn299iu", '#contactForm')
                 .then(() => {
-                    // Επιτυχία: ανακατεύθυνση
+                    // ΜΗΔΕΝΙΣΜΟΣ reCAPTCHA (για επόμενες προσπάθειες)
+                    if (typeof grecaptcha !== 'undefined') {
+                        grecaptcha.reset();
+                    }
+                    // Ανακατεύθυνση
                     window.location.href = "success.html";
                 })
                 .catch((error) => {
                     console.error("❌ Αποτυχία αποστολής email:", error);
-                    // Σφάλμα 422 υποδηλώνει πρόβλημα ρύθμισης στο EmailJS Dashboard!
-                    alert("❌ Κάτι πήγε στραβά. Ελέγξτε τις ρυθμίσεις των μεταβλητών στο EmailJS Dashboard.");
+                    alert("❌ Κάτι πήγε στραβά. Το email ΔΕΝ στάλθηκε. Δείτε την κονσόλα (F12) για λεπτομέρειες.");
+                    
+                    // ΜΗΔΕΝΙΣΜΟΣ reCAPTCHA μετά την αποτυχία
+                    if (typeof grecaptcha !== 'undefined') {
+                        grecaptcha.reset();
+                    }
                 });
         }
     </script>
 </body>
 </html>
+
+
+Φτιάξε το! Βγάλε και το Captcha αν χρειάζεται
