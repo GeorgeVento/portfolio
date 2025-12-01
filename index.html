@@ -195,10 +195,11 @@
             .then(function() {
                 alert("✅ Το μήνυμα στάλθηκε με επιτυχία!");
                 document.getElementById("contactForm").reset();
-                grecaptcha.reset();
+                window.location.href = "success.html";
             }, function(error) {
                 alert("❌ Κάτι πήγε στραβά. Δοκίμασε ξανά.");
                 console.log(error);
+                grecaptcha.reset();
             });
         }
     </script>
