@@ -21,6 +21,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
                     <li><a href="https://github.com/GeorgeVento/" target="_blank"><i class="fab fa-github"></i>My GitHub</a></li>
                 </ul>
             </nav>
@@ -39,8 +40,13 @@
         <div class="container">
             <h2>About Me</h2>
             <div class="about-content">
-                <p>"A dedicated Computer Science Student specializing in Web Development and Data Analysis (Excel). My focus is on solving complex problems and delivering high-quality, efficient code for functional applications. </p> 
-                <p>I am committed to continuous learning, mastering new frameworks and best practices to improve my craft. Let's connect to discuss potential opportunities or collaborations!"</p>
+                <div class="about-image">
+                    <img id="profileImage" src="profile.JPEG" alt="Profile Picture">
+                </div>
+                <div class="about-text">
+                    <p>"A dedicated Computer Science Student specializing in Web Development and Data Analysis (Excel). My focus is on solving complex problems and delivering high-quality, efficient code for functional applications. </p> 
+                    <p>I am committed to continuous learning, mastering new frameworks and best practices to improve my craft. Let's connect to discuss potential opportunities or collaborations!"</p>
+                </div>
             </div>
         </div>
     </section>
@@ -79,23 +85,25 @@
 
                 <div class="project-card">
                     <div class="card-header">
-                        <h3>Project Name Two</h3>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Django</span>
+                        <h3>Calculator</h3>
+                        <span class="tech-tag">Html</span>
+                        <span class="tech-tag">Css</span>
+                        <span class="tech-tag">JavaScript</span>
                     </div>
-                    <p>Description of the second project. Focus on the back-end implementation or the type of data handled (e.g., custom API, machine learning model).</p>
-                    <a href="[Link to Project 2 GitHub Repo]" target="_blank" class="project-link">
+                    <p>This project is a lightweight web-based calculator built with pure HTML, CSS, and JavaScript. It offers basic arithmetic functionality in a single-page layout, keeping all logic and interface components compact, simple, and easy to run in any local environment.</p>
+                    <a href="https://github.com/GeorgeVento/Calculator" target="_blank" class="project-link">
                         <i class="fab fa-github"></i> View Repository
                     </a>
                 </div>
 
                 <div class="project-card">
                     <div class="card-header">
-                        <h3>Project Name Three</h3>
-                        <span class="tech-tag">Vanilla JS</span>
-                        <span class="tech-tag">API</span>
+                        <h3>Pomodoro Timer (Soon)</h3>
+                        <span class="tech-tag">Html</span>
+                        <span class="tech-tag">Css</span>
+                        <span class="tech-tag">JavaScript</span>
                     </div>
-                    <p>Description of the third project, perhaps a smaller, focused tool or utility built with core web technologies.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam voluptate ut beatae inventore itaque error adipisci, reprehenderit obcaecati at repudiandae voluptatibus similique molestiae deleniti quisquam possimus libero, mollitia cumque tempora.</p>
                     <a href="[Link to Project 3 GitHub Repo]" target="_blank" class="project-link">
                         <i class="fab fa-github"></i> View Repository
                     </a>
@@ -105,11 +113,94 @@
         </div>
     </section>
 
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2>Get In Touch</h2>
+
+            <div class="contact-wrapper">
+            <form id="contactForm" class="contact-form" onsubmit="sendEmail(event)">
+
+                <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" name="name" id="name" required placeholder="Your Name">
+                </div>
+
+                <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" name="email" id="email" required placeholder="Your Email">
+                </div>
+
+                <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" name="subject" id="subject" required placeholder="Subject">
+                </div>
+
+                <div class="form-group">
+                <label for="message">Message</label>
+                <textarea name="message" id="message" rows="6" required placeholder="Message"></textarea>
+                </div>
+
+                <!-- Honeypot για spam -->
+                <input type="text" name="_honey" id="_honey" style="display:none">
+
+                <!-- reCAPTCHA (για production) -->
+                <div id="recaptcha-wrapper" style="display:none;">
+                <div class="g-recaptcha" data-sitekey="6Lf_nx0sAAAAADfKhhj8TYTdJLfe-9C4pr2MKPIr"></div>
+                </div>
+
+                <button type="submit" class="submit-button">Send Message</button>
+
+            </form>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <p>&copy; 2025 George-Leonidas Ventouratos. Made with <i class="fas fa-heart"></i> and Code.</p>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        // Initialize EmailJS
+        emailjs.init("1SQJnbQyaGHq7IlAa");
+
+        function sendEmail(e) {
+            e.preventDefault();
+
+            // Honeypot check
+            if(document.getElementById("_honey").value !== "") {
+            // Bot detected
+            console.log("Bot detected!");
+            return;
+            }
+
+            // reCAPTCHA check (προαιρετικό)
+            const captchaResponse = grecaptcha.getResponse();
+            if(captchaResponse.length === 0) {
+                alert("Please complete the CAPTCHA.");
+                return;
+            }
+
+            const params = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                subject: document.getElementById("subject").value,
+                message: document.getElementById("message").value
+            };
+
+            emailjs.send("service_s5ydl3k", "template_zn299iu", params)
+            .then(function() {
+                alert("✅ Το μήνυμα στάλθηκε με επιτυχία!");
+                document.getElementById("contactForm").reset();
+                grecaptcha.reset();
+            }, function(error) {
+                alert("❌ Κάτι πήγε στραβά. Δοκίμασε ξανά.");
+                console.log(error);
+            });
+        }
+    </script>
 </body>
 </html>
