@@ -479,25 +479,141 @@ nav ul li a i {
     margin-right: 8px;
     font-size: 1.1em;
 }
+/* --- Modern Footer Styling (Based on Example) --- */
 
-/* --- Footer --- */
-footer {
-    background-color: var(--header-bg);
-    color: #aaa;
+/* Βασικός ορισμός του footer */
+.modern-footer {
+    /* Χρησιμοποιούμε sticky, όχι fixed, για να ακολουθεί το scroll 
+       Εκτός αν θέλετε να είναι πάντα ορατό στο κάτω μέρος του viewport,
+       οπότε χρησιμοποιήστε position: fixed; bottom: 0; */
+    /* position: fixed; 
+    bottom: 0; */
+    position: relative; /* Εάν δεν είναι fixed */
+    left: 0;
+    width: 100%;
+    padding: 50px 0 30px; /* Πάνω και κάτω padding */
     text-align: center;
-    padding: 25px 0;
-    font-size: 0.9em;
+    background-color: var(--header-bg); /* Χρώμα φόντου του header */
+    color: #d6dfed; /* Ανοιχτό χρώμα κειμένου */
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2); /* Σκιά προς τα πάνω */
+    z-index: 50; /* Βεβαιωθείτε ότι είναι πάνω από άλλα στοιχεία */
 }
 
-footer p {
+/* Περιτύλιγμα περιεχομένου */
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    z-index: 10;
+    position: relative; /* Για να είναι πάνω από το φόντο/SVG */
+}
+
+/* Κοινωνικά Εικονίδια */
+.socials {
+    display: flex;
+    list-style: none;
+    padding: 0;
     margin: 0;
+    gap: 15px;
 }
 
-footer .fa-heart {
+.socials a {
+    font-size: 24px;
+    /* Χρησιμοποιούμε το κύριο χρώμα του θέματος */
+    background: rgba(0, 123, 255, 0.1); 
+    color: var(--primary-color); 
+    display: grid;
+    place-items: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.socials a:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: #ffeb3b; /* Χρώμα highlight */
+    transform: translateY(-3px) scale(1.1);
+}
+
+/* Σύνδεσμοι Πλοήγησης */
+.links {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.links a {
+    color: #a2b6e1; /* Ελαφρύ μπλε */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.links a:hover {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Νομικές Σημειώσεις */
+.legal, .legal-secondary {
+    font-size: 0.85em;
+    color: #a2b6e1;
+    margin: 5px 0;
+}
+
+.legal-secondary .fa-heart {
     color: #e74c3c;
-    margin: 0 5px;
 }
 
+
+/* --- Προαιρετικό: Στυλ για το Κυματιστό Φόντο (SVG/Background) --- */
+.footer-background {
+    /* Εάν δεν χρησιμοποιήσετε SVG, αυτό μπορεί να παραμείνει κενό ή να χρησιμοποιηθεί για
+       ένα απλό γραμμικό φόντο που ταιριάζει με το header */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Εάν δεν υπάρχει SVG, βάλτε ένα linear gradient */
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    pointer-events: none;
+    z-index: 1; /* Πρέπει να είναι κάτω από το footer-content */
+}
+
+/* --- Responsive Adjustments for Modern Footer --- */
+@media (max-width: 768px) {
+    .modern-footer {
+        padding: 40px 0 20px;
+    }
+    
+    .footer-content {
+        gap: 20px;
+    }
+
+    .socials a {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .links {
+        gap: 10px;
+        font-size: 0.9em;
+    }
+}
 /* --- Contact Section --- */
 .contact-section {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
