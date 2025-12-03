@@ -598,28 +598,100 @@ footer .fa-heart {
 /* --- Success Modal --- */
 /* success modal styles removed — redirect to success.html used instead */
 
-/* --- Responsive Adjustments --- */
+/* --- Responsive Adjustments (Max Width: 768px) --- */
 @media (max-width: 768px) {
+    
+    /* === Header & Navigation Adjustments === */
+    
+    /* Stack the logo and navigation vertically on small screens */
     header .container {
-        flex-direction: column;
+        flex-direction: column; 
+        align-items: center; /* Center alignment */
     }
 
+    /* Slightly smaller logo for mobile */
+    .logo a {
+        font-size: 1.4em; 
+    }
+
+    /* Reduce spacing for a compact, wrapping navigation list */
     nav ul {
-        margin-top: 15px;
+        margin-top: 10px;
+        gap: 8px; /* Reduced gap between nav buttons */
+        justify-content: center;
     }
 
-    nav ul li {
-        margin: 0 10px;
+    /* Key change: significantly reduce padding and font size for nav links */
+    nav ul li a {
+        padding: 8px 12px; /* Smaller padding makes buttons compact */
+        font-size: 0.9em; /* Smaller font size */
+        border-width: 1px; /* Thinner border */
+        white-space: nowrap; /* Ensures links don't break into multiple lines */
+    }
+
+    /* Smaller spacing for icons inside the links */
+    nav ul li a i {
+        margin-right: 4px; 
+    }
+    
+    /* === Hero Section Adjustments === */
+    .hero-section {
+        padding: 80px 0; /* Reduced vertical padding */
     }
 
     .hero-section h1 {
-        font-size: 2.5em;
+        font-size: 2.8em; /* Smaller main heading */
     }
 
+    .tagline {
+        font-size: 1.1em; /* Smaller tagline text */
+    }
+    
+    .cta-button {
+        padding: 12px 25px; /* Smaller CTA button */
+        font-size: 1em;
+    }
+
+
+    /* === About Section Adjustments === */
+    .about-content {
+        grid-template-columns: 1fr; /* Stack columns */
+        gap: 30px;
+        padding: 30px 20px;
+    }
+    
+    .about-text {
+        text-align: center; /* Center text when stacked */
+    }
+    
+    .about-image img {
+        max-width: 250px; /* Smaller profile image */
+    }
+
+    .about-text p {
+        font-size: 1em;
+    }
+    
+    .cv-download {
+        text-align: center; /* Ensure the download button is centered */
+    }
+
+
+    /* === Projects Section Adjustments === */
     .project-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Stack project cards */
     }
 
+    .project-card {
+        padding: 25px;
+    }
+    
+    .tech-tag {
+        font-size: 0.8em;
+        padding: 6px 10px;
+    }
+
+    /* === Contact Section Adjustments === */
     .contact-wrapper {
         padding: 35px 20px;
     }
@@ -627,29 +699,24 @@ footer .fa-heart {
     .form-group input,
     .form-group textarea {
         padding: 12px 14px;
-        font-size: 16px;
+        font-size: 16px; /* Prevents unwanted zoom on mobile browsers */
     }
 
     .submit-button {
         padding: 14px 28px;
         font-size: 1em;
     }
-
-    .success-content {
-        padding: 35px 25px;
-        margin: 20px;
-    }
-
-    .success-icon {
-        font-size: 3em;
-    }
-
-    .success-content h2 {
-        font-size: 1.4em;
-    }
-
+    
+    /* Remove unnecessary/unused mobile success modal styles */
+    .success-content,
+    .success-icon,
+    .success-content h2,
     .success-content p {
-        font-size: 0.95em;
+        /* These styles are no longer needed as per the script's redirect to success.html */
+        /* They are kept here only to override any previous definitions */
+        font-size: inherit; 
+        margin: 0;
+        padding: 0;
     }
 }
 
