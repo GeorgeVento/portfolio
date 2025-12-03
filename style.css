@@ -652,3 +652,47 @@ footer .fa-heart {
         font-size: 0.95em;
     }
 }
+
+/* --- CV Download Button Styling (Adapted to Theme) --- */
+.cv-download {
+    /* Ensures button is separated from the bio text */
+    margin-top: 30px; 
+    /* Ensures button is centered on mobile when text is centered */
+    text-align: inherit; 
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 30px;
+    
+    /* Use Primary Color and a subtle gradient for a professional look */
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05em;
+    border-radius: 8px; /* Consistent with other buttons/elements */
+    transition: all 0.3s ease;
+    
+    /* Add a shadow consistent with other card/button styles */
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+    border: 2px solid transparent; 
+}
+
+.download-btn:hover {
+    /* Darker/more intense gradient on hover */
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #003d82 100%);
+    
+    /* Lift and deepen shadow for a modern effect */
+    transform: translateY(-4px); 
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.4);
+    
+    /* Subtle yellow border to match the navigation/CTA highlight */
+    border: 2px solid #ffeb3b;
+}
+
+.download-btn:active {
+    transform: translateY(-1px);
+}
