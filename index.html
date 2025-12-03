@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Developer Portfolio</title>
-      <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,9 +58,9 @@
                 <div class="skill-item">HTML5 & CSS3</div>
                 <div class="skill-item">JavaScript</div>
                 <div class="skill-item">Python</div>
-                <div class="skill-item">SQL </div>
-                <div class="skill-item">PHP </div>
-                <div class="skill-item">C & C++ </div>
+                <div class="skill-item">SQL</div>
+                <div class="skill-item">PHP</div>
+                <div class="skill-item">C & C++</div>
             </div>
         </div>
     </section>
@@ -109,17 +109,15 @@
                     </a>
                 </div>
 
-                </div>
+            </div>
         </div>
     </section>
-
+    
 <section id="contact" class="section contact-section">
     <div class="container contact-wrapper"> 
         <h2>Get In Touch</h2>
         
-        <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
-
-            <input type="hidden" name="access_key" value="901ec84c-b1bb-4911-8e72-0cbab2ae7961">
+        <form id="contact-form" class="contact-form"> 
 
             <div class="form-group">
                 <label for="name">Your Name</label>
@@ -143,12 +141,6 @@
 
             <button type="submit" class="submit-button">Send</button>
             
-            <input type="hidden" name="redirect" value="https://georgevento.github.io/portfolio/success.html">
-            
-            <input type="hidden" name="autoresponse" value="Ευχαριστώ για το μήνυμά σας! Το έλαβα και θα επικοινωνήσω μαζί σας το συντομότερο δυνατό.">
-            
-            <input type="hidden" name="botcheck" value="">
-            
         </form>
     </div>
 </section>
@@ -159,6 +151,48 @@
         </div>
     </footer>
 
-    
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+
+    <script type="text/javascript">
+        // --- EMAILJS CONFIGURATION ---
+        const SERVICE_ID = 'service_eskwzv4';
+        const USER_ID = '1SQJnbQyaGHq7IlAa';
+        const TEMPLATE_NOTIFICATION = 'template_1aelipb';
+        const TEMPLATE_AUTOREPLY = 'template_fc2hzu5';
+        const REDIRECT_URL = 'https://georgevento.github.io/portfolio/success.html';
+        // ------------------------------
+        
+        // Αρχικοποίηση EmailJS με το Public Key
+        emailjs.init(USER_ID); 
+
+        // Listener για την υποβολή της φόρμας
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+            const form = this;
+            
+            // 1. Αποστολή του email ειδοποίησης (σε εσάς)
+            emailjs.sendForm(SERVICE_ID, TEMPLATE_NOTIFICATION, form)
+                .then(function() {
+                    console.log('SUCCESS: Notification email sent.');
+                    
+                    // 2. Αποστολή του email επιβεβαίωσης (Auto-Reply στον πελάτη)
+                    return emailjs.sendForm(SERVICE_ID, TEMPLATE_AUTOREPLY, form);
+                })
+                .then(function() {
+                    console.log('SUCCESS: Auto-reply sent.');
+                })
+                .catch(function(error) {
+                    // Χειρισμός σφάλματος. Συνεχίζουμε στο redirect.
+                    console.error('Email sending error (Notification or Auto-Reply failed):', error);
+                    alert('Παρουσιάστηκε πρόβλημα με την αποστολή, αλλά δοκιμάζουμε την ανακατεύθυνση.');
+                })
+                .finally(function() {
+                    // 3. Redirect στο success.html (πάντα γίνεται)
+                    window.location.href = REDIRECT_URL;
+                });
+        });
+    </script>
+
 </body>
 </html>
