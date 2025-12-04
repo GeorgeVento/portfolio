@@ -1,0 +1,154 @@
+/*
+============================================================
+FOOTER.CSS
+------------------------------------------------------------
+This file styles the website footer, including layout,
+background color, text styling, social media icons,
+navigation links, waves animation, and responsive
+adjustments for mobile devices.
+============================================================
+*/
+
+.modern-footer {
+    position: relative;
+    left: 0;
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    background-color: #1b52a3;
+    color: #d6dfed;
+    text-align: center;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.4);
+    z-index: 50;
+    opacity: 0;           /* Invisible at the beggining */
+    transform: translateY(20px); /* Small movement */
+    transition: opacity 1.2s ease, transform 1.2s ease; /* Smooth transition */
+}
+
+.modern-footer.show {
+    opacity: 1;
+    transform: translateY(0); /* At his position*/
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+    z-index: 10;
+}
+
+.socials {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 15px;
+}
+
+.socials a {
+    font-size: 24px;
+    background: rgba(0, 123, 255, 0.1);
+    color: var(--primary-color);
+    display: grid;
+    place-items: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.socials a:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: #ffeb3b;
+    transform: translateY(-3px) scale(1.1);
+}
+
+.links {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.links a {
+    color: #a2b6e1;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.links a:hover {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.legal, .legal-secondary {
+    font-size: 0.85em;
+    color: #a2b6e1;
+    margin: 5px 0;
+}
+
+.legal-secondary .fa-heart {
+    color: #e74c3c;
+}
+
+/* Waves */
+.waves {
+    position: relative;
+    width: 100%;
+    height: 100px;
+}
+
+.parallax > use {
+    animation: move-wave 25s cubic-bezier(.55,.5,.45,.5) infinite;
+}
+
+.parallax > use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+    fill: rgba(255,255,255,0.08);
+}
+
+.parallax > use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+    fill: rgba(255,255,255,0.05);
+}
+
+.parallax > use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+    fill: rgba(255,255,255,0.03);
+}
+
+.parallax > use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+    fill: var(--footer-bg);
+}
+
+@keyframes move-wave {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+
+@media (max-width: 768px) {
+    .waves {
+        height: 70px;
+    }
+}

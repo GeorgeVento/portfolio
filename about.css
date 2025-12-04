@@ -1,0 +1,119 @@
+/*
+============================================================
+ABOUT.CSS
+------------------------------------------------------------
+This file styles the "About Me" section, including text
+content, profile image, grid layout, hover effects,
+background gradients, and responsive adjustments for mobile.
+============================================================
+*/
+
+.about-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    background: linear-gradient(135deg, #f0f7ff 0%, #e8f4ff 100%);
+    padding: 50px 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.1);
+    border-left: 5px solid #007BFF;
+    border-right: 5px solid #0056b3;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 123, 255, 0.2);
+}
+
+.about-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2);
+    border: 3px solid #007BFF;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: cover;
+    background-color: #e8f4ff;
+}
+
+.about-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 123, 255, 0.35);
+}
+
+.about-text {
+    text-align: left;
+}
+
+.about-text p {
+    font-size: 1.15em;
+    color: #333;
+    line-height: 1.95;
+    margin: 18px 0;
+    font-weight: 500;
+}
+
+.cv-download {
+    margin-top: 30px;
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 30px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05em;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+    border: 2px solid transparent;
+}
+
+.download-btn:hover {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #003d82 100%);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.4);
+    border: 2px solid #ffeb3b;
+}
+
+.download-btn:active {
+    transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px 20px;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+
+    .about-image img {
+        max-width: 250px;
+    }
+
+    .about-text p {
+        font-size: 1em;
+    }
+
+    .cv-download {
+        text-align: center;
+    }
+}

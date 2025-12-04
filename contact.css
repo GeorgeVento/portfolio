@@ -1,0 +1,126 @@
+/*
+============================================================
+CONTACT.CSS
+------------------------------------------------------------
+This file styles the "Contact" section, including form
+layout, input fields, textarea, submit button, hover and
+focus effects, background colors, shadows, and responsive
+adjustments for mobile screens.
+============================================================
+*/
+
+.contact-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding-top: 80px;    /* Space above contact */
+    padding-bottom: 100px; /* Space below contact */
+}
+
+
+.contact-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 123, 255, 0.15);
+    border-left: 5px solid #007BFF;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-size: 1.05em;
+    letter-spacing: 0.3px;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 14px 18px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: 'Inter', sans-serif;
+    color: #2c3e50;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #007BFF;
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #999;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+    font-weight: 500;
+}
+
+.submit-button {
+    padding: 16px 35px;
+    background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+}
+
+.submit-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 123, 255, 0.4);
+    background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
+}
+
+.submit-button:active {
+    transform: translateY(-2px);
+}
+
+.submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+@media (max-width: 768px) {
+    .contact-wrapper {
+        padding: 35px 20px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 12px 14px;
+        font-size: 16px;
+    }
+
+    .submit-button {
+        padding: 14px 28px;
+        font-size: 1em;
+    }
+}
