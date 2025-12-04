@@ -100,7 +100,7 @@ The footer now perfectly aligns with the top of the waves.
 .legal, .legal-secondary {
     font-size: 0.85em;
     color: #a2b6e1;
-    margin: 5px 0;
+    margin: 2px 0;
 }
 
 .legal-secondary .fa-heart {
@@ -159,7 +159,7 @@ The footer now perfectly aligns with the top of the waves.
         padding-bottom: 15px;
     }
     .footer-content {
-        gap: 15px;
+        gap: 10px;
     }
     .waves {
         height: 70px;
