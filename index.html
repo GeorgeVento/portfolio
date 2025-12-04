@@ -160,10 +160,20 @@
         </form>
     </div>
 </section>
-
 <footer class="modern-footer">
-    <div class="footer-background">
-        </div>
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0" /> 
+            <use xlink:href="#gentle-wave" x="48" y="3" />
+            <use xlink:href="#gentle-wave" x="48" y="5" />
+            <use xlink:href="#gentle-wave" x="48" y="7" /> 
+        </g>
+    </svg>
+    
     <div class="container footer-content">
         <ul class="socials">
             <li><a href="https://github.com/GeorgeVento/" target="_blank" class="fa-brands fa-github" title="GitHub"></a></li>
@@ -179,7 +189,7 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
 
-        <p class="legal">&copy; 2025 George-Leonidas Ventouratos. All rights reserved.</p>
+        <p class="legal">&copy; 2025 All rights reserved.</p>
         <p class="legal-secondary">Made with <i class="fas fa-heart"></i> and Code.</p>
     </div>
 </footer>
@@ -195,33 +205,33 @@
         const REDIRECT_URL = 'https://georgevento.github.io/portfolio/success.html';
         // ------------------------------
         
-        // Αρχικοποίηση EmailJS με το Public Key
+        // Initialize EmailJS with the Public Key
         emailjs.init(USER_ID); 
 
-        // Listener για την υποβολή της φόρμας
+        // Listener for form submission
         document.getElementById('contact-form').addEventListener('submit', function(event) {
             event.preventDefault(); 
             
             const form = this;
             
-            // 1. Αποστολή του email ειδοποίησης (σε εσάς)
+            // 1. Send notification email 
             emailjs.sendForm(SERVICE_ID, TEMPLATE_NOTIFICATION, form)
                 .then(function() {
                     console.log('SUCCESS: Notification email sent.');
                     
-                    // 2. Αποστολή του email επιβεβαίωσης (Auto-Reply στον πελάτη)
+                    // 2. Send confirmation email
                     return emailjs.sendForm(SERVICE_ID, TEMPLATE_AUTOREPLY, form);
                 })
                 .then(function() {
                     console.log('SUCCESS: Auto-reply sent.');
                 })
                 .catch(function(error) {
-                    // Χειρισμός σφάλματος. Συνεχίζουμε στο redirect.
+                    // Error handling. Continue to redirect.
                     console.error('Email sending error (Notification or Auto-Reply failed):', error);
-                    alert('Παρουσιάστηκε πρόβλημα με την αποστολή, αλλά δοκιμάζουμε την ανακατεύθυνση.');
+                    alert('An issue occurred with the submission, but we are attempting the redirect.');
                 })
                 .finally(function() {
-                    // 3. Redirect στο success.html (πάντα γίνεται)
+                    // 3. Redirect to success.html 
                     window.location.href = REDIRECT_URL;
                 });
         });
