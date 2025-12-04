@@ -4,8 +4,8 @@ FOOTER.CSS
 ------------------------------------------------------------
 This file styles the website footer, including layout,
 background color, text styling, social media icons,
-navigation links, waves animation, and responsive
-adjustments for mobile devices.
+navigation links, waves animation, smooth fade-in
+transition, and responsive adjustments for mobile devices.
 ============================================================
 */
 
@@ -13,32 +13,33 @@ adjustments for mobile devices.
     position: relative;
     left: 0;
     width: 100%;
-    padding-top: 50px;
+    padding-top: 30px;       /* Reduced top padding */
     padding-bottom: 30px;
     background-color: #1b52a3;
     color: #d6dfed;
     text-align: center;
     box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.4);
     z-index: 50;
-    opacity: 0;           /* Invisible at the beggining */
-    transform: translateY(20px); /* Small movement */
+    opacity: 0;                   /* Invisible at the beginning */
+    transform: translateY(20px);  /* Small initial movement */
     transition: opacity 1.2s ease, transform 1.2s ease; /* Smooth transition */
 }
 
 .modern-footer.show {
     opacity: 1;
-    transform: translateY(0); /* At his position*/
+    transform: translateY(0); /* Moves to its final position */
 }
 
 .footer-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 20px; /* Reduced gap for more compact look */
     position: relative;
     z-index: 10;
 }
 
+/* --- Social Media Icons --- */
 .socials {
     display: flex;
     list-style: none;
@@ -67,6 +68,7 @@ adjustments for mobile devices.
     transform: translateY(-3px) scale(1.1);
 }
 
+/* --- Navigation Links --- */
 .links {
     display: flex;
     list-style: none;
@@ -93,6 +95,7 @@ adjustments for mobile devices.
     transform: translateY(-2px);
 }
 
+/* --- Legal Notes --- */
 .legal, .legal-secondary {
     font-size: 0.85em;
     color: #a2b6e1;
@@ -103,11 +106,11 @@ adjustments for mobile devices.
     color: #e74c3c;
 }
 
-/* Waves */
+/* --- Waves --- */
 .waves {
     position: relative;
     width: 100%;
-    height: 100px;
+    height: 100px; /* Height of wave */
 }
 
 .parallax > use {
@@ -147,7 +150,14 @@ adjustments for mobile devices.
     }
 }
 
+/* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
+    .modern-footer {
+        padding-top: 20px; /* Reduce top padding on mobile */
+    }
+    .footer-content {
+        gap: 15px; /* Reduce spacing on mobile */
+    }
     .waves {
         height: 70px;
     }
