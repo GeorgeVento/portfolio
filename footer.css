@@ -6,6 +6,7 @@ This file styles the website footer, including layout,
 background color, text styling, social media icons,
 navigation links, waves animation, smooth fade-in
 transition, and responsive adjustments for mobile devices.
+The footer now perfectly aligns with the top of the waves.
 ============================================================
 */
 
@@ -13,7 +14,7 @@ transition, and responsive adjustments for mobile devices.
     position: relative;
     left: 0;
     width: 100%;
-    padding-top: 30px;       /* Reduced top padding */
+    padding-top: 10px;       /* Reduced top padding to align with waves */
     padding-bottom: 30px;
     background-color: #1b52a3;
     color: #d6dfed;
@@ -34,7 +35,7 @@ transition, and responsive adjustments for mobile devices.
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px; /* Reduced gap for more compact look */
+    gap: 20px;
     position: relative;
     z-index: 10;
 }
@@ -111,6 +112,7 @@ transition, and responsive adjustments for mobile devices.
     position: relative;
     width: 100%;
     height: 100px; /* Height of wave */
+    margin-top: -10px; /* Pull waves up to align with footer top */
 }
 
 .parallax > use {
@@ -153,12 +155,13 @@ transition, and responsive adjustments for mobile devices.
 /* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
     .modern-footer {
-        padding-top: 20px; /* Reduce top padding on mobile */
+        padding-top: 5px; /* Further reduced top padding on mobile */
     }
     .footer-content {
-        gap: 15px; /* Reduce spacing on mobile */
+        gap: 15px;
     }
     .waves {
         height: 70px;
+        margin-top: -5px;
     }
 }
