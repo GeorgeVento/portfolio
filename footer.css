@@ -15,7 +15,7 @@ The footer now perfectly aligns with the top of the waves.
     left: 0;
     width: 100%;
     padding-top: 0px;       /* No space above */
-    padding-bottom: 20px;   /* Slight padding below content */
+    padding-bottom: 5px;   /* Slight padding below content */
     background-color: #1b52a3;
     color: #d6dfed;
     text-align: center;
