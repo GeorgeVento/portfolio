@@ -14,8 +14,8 @@ The footer now perfectly aligns with the top of the waves.
     position: relative;
     left: 0;
     width: 100%;
-    padding-top: 10px;       /* Reduced top padding to align with waves */
-    padding-bottom: 30px;
+    padding-top: 0px;       /* No space above */
+    padding-bottom: 20px;   /* Slight padding below content */
     background-color: #1b52a3;
     color: #d6dfed;
     text-align: center;
@@ -23,12 +23,12 @@ The footer now perfectly aligns with the top of the waves.
     z-index: 50;
     opacity: 0;                   /* Invisible at the beginning */
     transform: translateY(20px);  /* Small initial movement */
-    transition: opacity 1.2s ease, transform 1.2s ease; /* Smooth transition */
+    transition: opacity 1.2s ease, transform 1.2s ease;
 }
 
 .modern-footer.show {
     opacity: 1;
-    transform: translateY(0); /* Moves to its final position */
+    transform: translateY(0);
 }
 
 .footer-content {
@@ -111,8 +111,8 @@ The footer now perfectly aligns with the top of the waves.
 .waves {
     position: relative;
     width: 100%;
-    height: 100px; /* Height of wave */
-    margin-top: -10px; /* Pull waves up to align with footer top */
+    height: 100px;
+    margin-top: 0px;  /* Exactly aligned with footer top */
 }
 
 .parallax > use {
@@ -155,13 +155,14 @@ The footer now perfectly aligns with the top of the waves.
 /* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
     .modern-footer {
-        padding-top: 5px; /* Further reduced top padding on mobile */
+        padding-top: 0px; 
+        padding-bottom: 15px;
     }
     .footer-content {
         gap: 15px;
     }
     .waves {
         height: 70px;
-        margin-top: -5px;
+        margin-top: 0px;
     }
 }
