@@ -2,37 +2,54 @@
 ============================================================
 SKILLS.CSS
 ------------------------------------------------------------
-This file styles the "Skills" section, including grid
-layout for skill items, hover effects, color changes,
-shadow effects, and responsiveness for smaller screens.
+This file styles the "Programming Languages & Tools" section
+with icons, hover effects, and responsive design.
 ============================================================
 */
 
 .skills-section {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: #f5f7fa;
 }
 
 .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 25px;
     max-width: 1000px;
     margin: 0 auto;
 }
 
 .skill-item {
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-    padding: 30px 25px;
+    background: #ffffff;
+    padding: 30px 20px;
     border-radius: 12px;
     text-align: center;
-    font-weight: 700;
+    font-weight: 600;
     color: #007BFF;
-    border: 2px solid transparent;
-    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.1);
-    transition: all 0.4s ease;
+    border: 1px solid #e0e4e8;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    font-size: 1.1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 140px;
+    height: 140px;
+}
+
+.skill-item i {
+    font-size: 2.5em;
+    color: #007BFF;
+    transition: all 0.3s ease;
+}
+
+.skill-item span {
+    font-size: 0.95em;
+    letter-spacing: 0.3px;
 }
 
 .skill-item::before {
@@ -44,16 +61,46 @@ shadow effects, and responsiveness for smaller screens.
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(0, 123, 255, 0.2), transparent);
     transition: left 0.5s ease;
+    pointer-events: none;
 }
 
 .skill-item:hover {
-    background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
+    background: #007BFF;
     color: white;
-    transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 12px 35px rgba(0, 123, 255, 0.3);
-    border: 2px solid #ffeb3b;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.2);
 }
+
+.skill-item:hover i {
+    color: #ffeb3b;
+    transfowhite;
+    transform: scale(1.1
 
 .skill-item:hover::before {
     left: 100%;
+}
+
+/* Dark mode support removed - light theme only */html[data-theme="dark"] .skill-item:hover i {
+    color: #fbbf24;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+        gap: 18px;
+    }
+
+    .skill-item {
+        padding: 22px 15px;
+        gap: 10px;
+    }
+
+    .skill-item i {
+        font-size: 2em;
+    }
+
+    .skill-item span {
+        font-size: 0.85em;
+    }
 }

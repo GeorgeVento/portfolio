@@ -2,62 +2,15 @@
 ============================================================
 FOOTER.CSS
 ------------------------------------------------------------
-Updated so that the waves appear ABOVE the footer correctly.
-Waves must be OUTSIDE the footer in HTML.
+Modern footer styling with elegant divider and smooth layout.
 ============================================================
 */
 
-/* --- Waves Wrapper (NEW) --- */
-.footer-waves-wrapper {
-    position: relative;
+/* --- Footer Divider --- */
+.footer-divider {
+    height: 1px;
+    background: #e0e4e8;
     width: 100%;
-    height: 100px;
-    margin-bottom: -3px;     /* Perfect overlap with footer */
-    z-index: 200;            /* Above the footer */
-}
-
-.waves {
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-/* --- Waves Animation --- */
-.parallax > use {
-    animation: move-wave 25s cubic-bezier(.55,.5,.45,.5) infinite;
-}
-
-.parallax > use:nth-child(1) {
-    animation-delay: -2s;
-    animation-duration: 7s;
-    fill: rgba(255,255,255,0.08);
-}
-
-.parallax > use:nth-child(2) {
-    animation-delay: -3s;
-    animation-duration: 10s;
-    fill: rgba(255,255,255,0.05);
-}
-
-.parallax > use:nth-child(3) {
-    animation-delay: -4s;
-    animation-duration: 13s;
-    fill: rgba(255,255,255,0.03);
-}
-
-.parallax > use:nth-child(4) {
-    animation-delay: -5s;
-    animation-duration: 20s;
-    fill: var(--footer-bg);
-}
-
-@keyframes move-wave {
-    0% {
-        transform: translate3d(-90px, 0, 0);
-    }
-    100% {
-        transform: translate3d(85px, 0, 0);
-    }
 }
 
 /* --- Footer Container --- */
@@ -65,16 +18,16 @@ Waves must be OUTSIDE the footer in HTML.
     position: relative;
     left: 0;
     width: 100%;
-    padding-top: 0px;        /* No space above */
-    padding-bottom: 5px;
-    background-color: #1b52a3;
-    color: #d6dfed;
+    padding: 40px 20px;
+    background-color: #ffffff;
+    color: #555;
     text-align: center;
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.08);
+    border-top: 1px solid #e0e4e8;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 1.2s ease, transform 1.2s ease;
-    z-index: 1;              /* Lower than waves */
+    z-index: 1;
 }
 
 .modern-footer.show {
@@ -87,7 +40,7 @@ Waves must be OUTSIDE the footer in HTML.
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     position: relative;
     z-index: 10;
 }
@@ -102,34 +55,27 @@ Waves must be OUTSIDE the footer in HTML.
 }
 
 .socials a {
-    font-size: 24px;
-    background: rgba(0, 123, 255, 0.1);
-    color: var(--primary-color);
+    font-size: 20px;
+    background: transparent;
+    color: #007BFF;
     display: grid;
     place-items: center;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    border: 2px solid var(--primary-color);
+    border: 2px solid #007BFF;
     transition: all 0.3s ease;
 }
 
 .socials a:hover {
-    background: var(--primary-color);
+    background: #007BFF;
     color: white;
-    border-color: #ffeb3b;
-    transform: translateY(-3px) scale(1.1);
+    transform: translateY(-3px);
 }
 
 /* --- Navigation Links --- */
 .links {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: none;
 }
 
 .links a {
@@ -161,15 +107,26 @@ Waves must be OUTSIDE the footer in HTML.
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
-    .footer-waves-wrapper {
-        height: 70px;
-    }
-
     .modern-footer {
         padding-bottom: 15px;
+        padding-top: 10px;
     }
 
     .footer-content {
-        gap: 10px;
+        gap: 12px;
+    }
+
+    .socials {
+        gap: 12px;
+    }
+
+    .socials a {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .legal, .legal-secondary {
+        font-size: 0.75em;
     }
 }

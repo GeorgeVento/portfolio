@@ -1,0 +1,565 @@
+/*
+============================================================
+NAVIGATION.CSS
+------------------------------------------------------------
+Hamburger menu, scroll-to-top button, form validation,
+and mobile navigation styling.
+============================================================
+*/
+
+/* ========== SCROLL TO TOP BUTTON ========== */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 999;
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 123, 255, 0.4);
+    background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
+}
+
+/* ========== HAMBURGER MENU ========== */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 101;
+    padding: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #ffeb3b;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(11px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-11px);
+}
+
+/* ========== MENU OVERLAY ========== */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 98;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ========== FILTER BUTTONS ========== */
+.filter-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.filter-btn {
+    padding: 12px 25px;
+    background-color: transparent;
+    border: 2px solid #007BFF;
+    color: #007BFF;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95em;
+    transition: all 0.3s ease;
+    letter-spacing: 0.3px;
+}
+
+.filter-btn:hover {
+    background-color: #f0f4f8;
+    border-color: #0056b3;
+    color: #0056b3;
+}
+
+.filter-btn.active {
+    background-color: #007BFF;
+    border-color: #007BFF;
+    color: white;
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+}
+
+/* ========== SCROLL ANIMATIONS ========== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-in {
+    animation: fadeInUp 0.6s ease-out !important;
+}
+
+/* ========== FORM VALIDATION ========== */
+.form-group input.valid,
+.form-group textarea.valid {
+    border-color: #28a745;
+    background-color: #f0fff4;
+}
+
+.form-group input.error,
+.form-group textarea.error {
+    border-color: #dc3545;
+    background-color: #fff5f5;
+}
+
+.form-message {
+    margin-top: 15px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+.form-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.form-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.form-message.hidden {
+    display: none;
+}
+
+/* ========== MOBILE RESPONSIVE ========== */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .scroll-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1em;
+    }
+
+    .filter-btn {
+        padding: 10px 18px;
+        font-size: 0.85em;
+    }
+}
+
+/* ========== SCROLL TO TOP BUTTON ========== */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 123, 255, 0.4);
+    background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
+}
+
+.scroll-to-top:active {
+    transform: translateY(-2px);
+}
+
+/* ========== HAMBURGER MENU ========== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    gap: 6px;
+    z-index: 101;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #ffeb3b;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* ========== MENU OVERLAY ========== */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 98;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+html[data-theme="dark"] .menu-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+        order: 3;
+    }
+
+    nav {
+        position: fixed;
+        top: 95px;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        z-index: 99;
+        order: 4;
+    }
+
+    nav.active {
+        max-height: 300px;
+    }
+
+    nav ul {
+        flex-direction: column !important;
+        gap: 0 !important;
+        padding: 15px 0 !important;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 12px 20px !important;
+        border-radius: 0 !important;
+        background: none !important;
+        border: 1px solid rgba(255, 235, 59, 0.2) !important;
+    }
+
+    nav ul li a:hover {
+        background: rgba(255, 235, 59, 0.1) !important;
+    }
+
+    .scroll-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* ========== STATS SECTION ========== */
+.stats-section {
+    background: linear-gradient(135deg, #007BFF 0%, #0056b3 50%, #003d82 100%);
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.stats-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 235, 59, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.stat-item {
+    text-align: center;
+    color: white;
+    padding: 30px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 235, 59, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 235, 59, 0.15);
+    border-color: rgba(255, 235, 59, 0.5);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.stat-item h3 {
+    font-size: 3em;
+    margin: 0 0 10px 0;
+    color: #ffeb3b;
+    font-weight: 900;
+}
+
+.stat-item p {
+    font-size: 1.1em;
+    margin: 0;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .stats-section {
+        padding: 40px 15px;
+    }
+
+    .stats-grid {
+        gap: 20px;
+    }
+
+    .stat-item {
+        padding: 20px 15px;
+    }
+
+    .stat-item h3 {
+        font-size: 2.2em;
+    }
+
+    .stat-item p {
+        font-size: 0.95em;
+    }
+}
+
+/* ========== FORM VALIDATION ========== */
+.form-group input.valid,
+.form-group textarea.valid {
+    border-color: #28a745 !important;
+    background-color: rgba(40, 167, 69, 0.05) !important;
+}
+
+.form-group input.error,
+.form-group textarea.error {
+    border-color: #dc3545 !important;
+    background-color: rgba(220, 53, 69, 0.05) !important;
+}
+
+.form-group input.valid:focus,
+.form-group textarea.valid:focus {
+    box-shadow: 0 0 0 4px rgba(40, 167, 69, 0.15) !important;
+}
+
+.form-group input.error:focus,
+.form-group textarea.error:focus {
+    box-shadow: 0 0 0 4px rgba(220, 53, 69, 0.15) !important;
+}
+
+.form-message {
+    padding: 12px 16px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    animation: slideDown 0.3s ease;
+}
+
+.form-message.hidden {
+    display: none;
+}
+
+.form-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.form-message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========== BUTTON LOADING STATE ========== */
+.btn-loader {
+    display: none;
+}
+
+.btn-loader.hidden {
+    display: none !important;
+}
+
+.submit-button:disabled {
+    opacity: 0.8 !important;
+    cursor: not-allowed !important;
+}
+
+.btn-text.hidden {
+    display: none;
+}
+
+/* ========== ACCESSIBILITY ========== */
+
+/* Keyboard focus states */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+    outline: 2px solid #007BFF;
+    outline-offset: 2px;
+}
+
+/* Skip link for keyboard navigation */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #007BFF;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: more) {
+    .scroll-to-top {
+        border: 2px solid white;
+    }
+
+    .stat-item {
+        border: 2px solid #ffeb3b;
+    }
+
+    input,
+    textarea {
+        border-width: 2px !important;
+    }
+}

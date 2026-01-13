@@ -9,21 +9,34 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/hero.css">
     <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/experience.css">
     <link rel="stylesheet" href="css/skills.css">
+    <link rel="stylesheet" href="css/certifications.css">
     <link rel="stylesheet" href="css/projects.css">
     <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" class="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <header>
         <div class="container">
             <div class="logo">
                 <a href="#hero">George-Leonidas Ventouratos</a>
             </div>
-            <nav>
+            <button id="hamburger" class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="nav-menu">
                 <ul>
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
@@ -71,30 +84,119 @@
     </div>
 </section>
 
-    <section id="skills" class="section skills-section">
+    <section id="experience" class="section experience-section">
         <div class="container">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-item">HTML5 & CSS3</div>
-                <div class="skill-item">JavaScript</div>
-                <div class="skill-item">Python</div>
-                <div class="skill-item">SQL</div>
-                <div class="skill-item">PHP</div>
-                <div class="skill-item">C & C++</div>
+            <h2>Experience & Expertise</h2>
+            <div class="experience-grid">
+                <div class="experience-item">
+                    <div class="exp-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <div class="tech-stack">
+                        <span>HTML5 & CSS3</span>
+                        <span>JavaScript</span>
+                        <span>PHP</span>
+                        <span>Responsive Design</span>
+                    </div>
+                    <p>Specialized in creating responsive, user-friendly web applications. Experienced in building single-page applications and server-side web development with clean, maintainable code.</p>
+                </div>
+                <div class="experience-item">
+                    <div class="exp-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Database Management</h3>
+                    <div class="tech-stack">
+                        <span>SQL</span>
+                        <span>MySQLi</span>
+                        <span>Database Design</span>
+                        <span>Data Management</span>
+                    </div>
+                    <p>Proficient in designing and managing relational databases, creating efficient queries, and implementing secure data solutions. Experienced with database architecture and optimization.</p>
+                </div>
+                <div class="experience-item">
+                    <div class="exp-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3>Programming & Problem Solving</h3>
+                    <div class="tech-stack">
+                        <span>Python</span>
+                        <span>C & C++</span>
+                        <span>Algorithms</span>
+                        <span>Data Structures</span>
+                    </div>
+                    <p>Strong foundation in computer science fundamentals. Experienced in solving complex computational problems using efficient algorithms and optimized data structures.</p>
+                </div>
             </div>
         </div>
     </section>
-
-    <section id="projects" class="section projects-section">
+    <section id="certifications" class="section certifications-section">
+        <div class="container">
+            <h2>Certifications & Achievements</h2>
+            <div class="certifications-grid">
+                <div class="cert-item">
+                    <div class="cert-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>GlobalCert</h3>
+                    <p class="cert-issuer">Professional Certification</p>
+                    <p>Certified in professional development and technology best practices, demonstrating commitment to continuous learning and industry standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="skills" class="section skills-section">
+        <div class="container">
+            <h2>Programming Languages & Tools</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fab fa-html5"></i>
+                    <span>HTML5</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-css3-alt"></i>
+                    <span>CSS3</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-js-square"></i>
+                    <span>JavaScript</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-python"></i>
+                    <span>Python</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-database"></i>
+                    <span>SQL</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-php"></i>
+                    <span>PHP</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-code"></i>
+                    <span>C & C++</span>
+                </div>
+            </div>
+        </div>
+    </section>
         <div class="container">
             <h2>My GitHub Projects</h2>
+            
+            <!-- Project Filter -->
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="php">PHP</button>
+                <button class="filter-btn" data-filter="javascript">JavaScript</button>
+                <button class="filter-btn" data-filter="database">Database</button>
+            </div>
+            
             <div class="project-grid">
 
-                <div class="project-card">
-                    <div class="card-header">
-                        <h3>Insurance Calculator</h3>
+                <div class="project-card" data-category="php">
+                    <h3>Insurance Calculator</h3>
+                    <div class="tech-tags-container">
                         <span class="tech-tag">PHP</span>
-                        <span class="tech-tag">CSS</span>
                         <span class="tech-tag">HTML</span>
                         <span class="tech-tag">CSS</span>
                     </div>
@@ -105,9 +207,9 @@
                     </a>
                 </div>
 
-                <div class="project-card">
-                    <div class="card-header">
-                        <h3>Calculator</h3>
+                <div class="project-card" data-category="javascript">
+                    <h3>Calculator</h3>
+                    <div class="tech-tags-container">
                         <span class="tech-tag">HTML</span>
                         <span class="tech-tag">CSS</span>
                         <span class="tech-tag">JavaScript</span>
@@ -118,9 +220,9 @@
                     </a>
                 </div>
 
-                <div class="project-card">
-                    <div class="card-header">
-                        <h3>Room Reservation App</h3>
+                <div class="project-card" data-category="php database">
+                    <h3>Room Reservation App</h3>
+                    <div class="tech-tags-container">
                         <span class="tech-tag">PHP</span>
                         <span class="tech-tag">MySQLi</span>
                         <span class="tech-tag">HTML</span>
@@ -132,6 +234,26 @@
                     </a>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>3+</h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Commitment to Excellence</p>
+                </div>
+                <div class="stat-item">
+                    <h3>∞</h3>
+                    <p>Always Learning</p>
+                </div>
             </div>
         </div>
     </section>
@@ -162,25 +284,18 @@
                 <textarea name="message" id="message" rows="6" required placeholder="Message"></textarea>
             </div>
 
-            <button type="submit" class="submit-button">Send</button>
+            <button type="submit" class="submit-button" id="submit-btn">
+                <span class="btn-text">Send</span>
+                <span class="btn-loader hidden">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </span>
+            </button>
+            <p id="form-message" class="form-message hidden"></p>
             
         </form>
     </div>
 </section>
-    <div class="footer-waves-wrapper">
-        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-            <defs>
-                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-            </defs>
-            <g class="parallax">
-                <use xlink:href="#gentle-wave" x="48" y="0" /> 
-                <use xlink:href="#gentle-wave" x="48" y="3" />
-                <use xlink:href="#gentle-wave" x="48" y="5" />
-                <use xlink:href="#gentle-wave" x="48" y="7" /> 
-            </g>
-        </svg>
-    </div>
+    <div class="footer-divider"></div>
     <footer class="modern-footer">
         <div class="container footer-content">
             <ul class="socials">
@@ -189,20 +304,13 @@
                 <li><a href="https://www.instagram.com/geo.vnt/?next=%2F" target="_blank" class="fa-brands fa-instagram" title="Instagram"></a></li>
             </ul>
 
-            <ul class="links">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Portfolio</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-
             <p class="legal">George-Leonidas Ventouratos &copy; 2025 All rights reserved.</p>
             <p class="legal-secondary">Made with <i class="fas fa-heart"></i> and Code.</p>
         </div>
     </footer>
 
    <script>
+// Footer visibility on scroll
 window.addEventListener('scroll', () => {
     const footer = document.querySelector('.modern-footer');
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
@@ -211,10 +319,152 @@ window.addEventListener('scroll', () => {
         footer.classList.remove('show');
     }
 });
+
 window.addEventListener('DOMContentLoaded', () => {
     const footer = document.querySelector('.modern-footer');
     footer.classList.add('show');
+    initProjectFilter();
+    initScrollAnimations();
 });
+
+// ========== PROJECT FILTER ==========
+function initProjectFilter() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update active button
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const filterValue = btn.getAttribute('data-filter');
+            
+            // Filter and animate projects
+            projectCards.forEach(card => {
+                const categories = card.getAttribute('data-category').split(' ');
+                const show = filterValue === 'all' || categories.includes(filterValue);
+                
+                card.style.animation = 'none';
+                setTimeout(() => {
+                    if (show) {
+                        card.classList.remove('hidden');
+                        card.style.animation = 'fadeInScale 0.5s ease-out';
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                }, 10);
+            });
+        });
+    });
+}
+
+// ========== SMOOTH SCROLL ANIMATIONS ==========
+function initScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all animatable elements
+    document.querySelectorAll('.section, .project-card, .skill-item, .stat-item').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// Scroll to Top Button
+const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        scrollToTopBtn.classList.add('show');
+    } else {
+        scrollToTopBtn.classList.remove('show');
+    }
+});
+
+scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Hamburger Menu
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+const menuOverlay = document.createElement('div');
+menuOverlay.className = 'menu-overlay';
+document.body.appendChild(menuOverlay);
+
+hamburger.addEventListener('click', () => {
+    const isOpen = navMenu.classList.toggle('active');
+    hamburger.setAttribute('aria-expanded', isOpen);
+    
+    if (isOpen) {
+        menuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    } else {
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Close menu when overlay is clicked
+menuOverlay.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+    menuOverlay.classList.remove('active');
+    document.body.style.overflow = 'auto';
+});
+
+// Close menu when link is clicked
+const navLinks = navMenu.querySelectorAll('a');
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+});
+
+// Form Validation with visual feedback
+const contactForm = document.getElementById('contact-form');
+const formInputs = contactForm.querySelectorAll('input, textarea');
+
+formInputs.forEach(input => {
+    input.addEventListener('blur', () => {
+        validateField(input);
+    });
+    input.addEventListener('input', () => {
+        if (input.classList.contains('error')) {
+            validateField(input);
+        }
+    });
+});
+
+function validateField(field) {
+    const isValid = field.checkValidity();
+    if (isValid) {
+        field.classList.remove('error');
+        field.classList.add('valid');
+    } else {
+        field.classList.remove('valid');
+        field.classList.add('error');
+    }
+}
+
+
 </script>
 
     <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
@@ -231,12 +481,23 @@ window.addEventListener('DOMContentLoaded', () => {
         // Initialize EmailJS with the Public Key
         emailjs.init(USER_ID); 
 
-        // Listener for form submission
+        // Listener for form submission with loading state
         document.getElementById('contact-form').addEventListener('submit', function(event) {
             event.preventDefault(); 
             
             const form = this;
+            const submitBtn = document.getElementById('submit-btn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnLoader = submitBtn.querySelector('.btn-loader');
+            const formMessage = document.getElementById('form-message');
             
+            // Disable button and show loader
+            submitBtn.disabled = true;
+            btnText.classList.add('hidden');
+            btnLoader.classList.remove('hidden');
+            formMessage.classList.add('hidden');
+            
+
             // 1. Send notification email 
             emailjs.sendForm(SERVICE_ID, TEMPLATE_NOTIFICATION, form)
                 .then(function() {
@@ -249,9 +510,15 @@ window.addEventListener('DOMContentLoaded', () => {
                     console.log('SUCCESS: Auto-reply sent.');
                 })
                 .catch(function(error) {
-                    // Error handling. Continue to redirect.
+                    // Error handling. Show message to user
                     console.error('Email sending error (Notification or Auto-Reply failed):', error);
-                    alert('An issue occurred with the submission, but we are attempting the redirect.');
+                    submitBtn.disabled = false;
+                    btnText.classList.remove('hidden');
+                    btnLoader.classList.add('hidden');
+                    formMessage.textContent = 'An error occurred. Please try again.';
+                    formMessage.classList.remove('hidden');
+                    formMessage.classList.add('error');
+                    return;
                 })
                 .finally(function() {
                     // 3. Redirect to success.html 

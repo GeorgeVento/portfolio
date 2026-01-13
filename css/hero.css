@@ -9,10 +9,10 @@ animations, and responsive scaling for mobile devices.
 */
 
 .hero-section {
-    background: linear-gradient(135deg, #007BFF 0%, #0056b3 50%, #003d82 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
     text-align: center;
     padding: 120px 0;
-    border-bottom: 3px solid #ffeb3b;
+    border-bottom: 1px solid #e0e4e8;
     position: relative;
     overflow: hidden;
 }
@@ -21,26 +21,26 @@ animations, and responsive scaling for mobile devices.
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(255, 235, 59, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    background: radial-gradient(circle at 20% 50%, rgba(0, 123, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 123, 255, 0.03) 0%, transparent 50%);
     pointer-events: none;
 }
 
 .hero-section h1 {
     font-size: 4em;
     margin-bottom: 15px;
-    color: white;
+    color: #1a1f3a;
     font-weight: 900;
     letter-spacing: -1px;
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-shadow: none;
     animation: slideInDown 0.8s ease-out;
 }
 
 .tagline {
     font-size: 1.4em;
-    color: #f0f4f8;
+    color: #555;
     margin-bottom: 35px;
-    font-weight: 500;
+    font-weight: 400;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -51,23 +51,22 @@ animations, and responsive scaling for mobile devices.
 .cta-button {
     display: inline-block;
     padding: 16px 35px;
-    background-color: #ffeb3b;
-    color: #2c3e50;
+    background-color: #007BFF;
+    color: white;
     text-decoration: none;
     border-radius: 8px;
-    font-weight: 700;
-    font-size: 1.1em;
+    font-weight: 600;
+    font-size: 1.05em;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
     border: 2px solid transparent;
     animation: slideInUp 0.8s ease-out 0.4s both;
 }
 
 .cta-button:hover {
-    background-color: white;
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-    border: 2px solid #ffeb3b;
+    background-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
 }
 
 @keyframes slideInDown {
@@ -82,19 +81,27 @@ animations, and responsive scaling for mobile devices.
 
 @media (max-width: 768px) {
     .hero-section {
-        padding: 80px 0;
+        padding: 60px 0;
+        border-bottom: 2px solid #ffeb3b;
     }
 
     .hero-section h1 {
-        font-size: 2.8em;
+        font-size: 2.5em;
+        margin-bottom: 12px;
     }
 
     .tagline {
-        font-size: 1.1em;
+        font-size: 1em;
+        margin-bottom: 25px;
+        max-width: 100%;
     }
 
     .cta-button {
-        padding: 12px 25px;
-        font-size: 1em;
+        padding: 12px 28px;
+        font-size: 0.95em;
+    }
+}
+        padding: 11px 22px;
+        font-size: 0.95em;
     }
 }

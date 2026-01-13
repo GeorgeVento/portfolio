@@ -12,11 +12,13 @@ and default heading styles for the entire portfolio.
 :root {
     --primary-color: #007BFF;
     --primary-dark: #0056b3;
-    --background-color: #f0f4f8;
+    --background-color: #f5f7fa;
     --secondary-background: #ffffff;
-    --text-color: #2c3e50;
-    --header-bg: #2c3e50;
-    --footer-bg: #1b52a3;
+    --text-color: #1a1f3a;
+    --text-secondary: #555;
+    --header-bg: #ffffff;
+    --footer-bg: #1a1f3a;
+    --border-color: #e0e4e8;
     --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
     --card-hover-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
@@ -61,4 +63,24 @@ h2::after {
     background-color: var(--primary-color);
     margin: 10px auto 0;
     border-radius: 2px;
+}
+
+/* --- Section Styling with Dividers --- */
+.section {
+    position: relative;
+    padding: 60px 20px;
+}
+
+.section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    right: 5%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(0, 123, 255, 0.2), transparent);
+}
+
+.section:last-child::after {
+    display: none;
 }
