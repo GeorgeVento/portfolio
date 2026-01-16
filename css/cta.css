@@ -11,7 +11,10 @@ Encourages visitors to connect and view GitHub projects.
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 50%, #2d4499 100%);
     padding: 80px 20px;
     position: relative;
-    overflow: hidden;
+    /* CRITICAL: Prevents any element inside from creating horizontal scroll */
+    overflow: hidden; 
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .cta-section::before {
@@ -23,6 +26,7 @@ Encourages visitors to connect and view GitHub projects.
     height: 600px;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
     pointer-events: none;
+    z-index: 0;
 }
 
 .cta-section::after {
@@ -34,6 +38,7 @@ Encourages visitors to connect and view GitHub projects.
     height: 600px;
     background: radial-gradient(circle, rgba(0, 0, 0, 0.1) 0%, transparent 70%);
     pointer-events: none;
+    z-index: 0;
 }
 
 .cta-content {
@@ -114,50 +119,65 @@ Encourages visitors to connect and view GitHub projects.
     font-size: 1.1em;
 }
 
+/* ============================================================
+MOBILE RESPONSIVE (Aligned with projects.css)
+============================================================
+*/
 @media (max-width: 768px) {
     .cta-section {
-        padding: 50px 20px;
+        padding: 60px 20px;
+        /* Force block to ensure no side-scrolling from flex */
+        display: block; 
+    }
+
+    /* Disable decorative elements on mobile to guarantee no overflow */
+    .cta-section::before, 
+    .cta-section::after {
+        display: none;
+    }
+
+    .cta-content {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
     }
 
     .cta-content h2 {
-        font-size: 1.8em;
+        font-size: 1.8rem;
+        line-height: 1.2;
+        margin-bottom: 15px;
     }
 
     .cta-content p {
-        font-size: 1em;
+        font-size: 1.05rem;
         margin-bottom: 30px;
+        padding: 0 5px;
     }
 
     .cta-buttons {
         flex-direction: column;
+        align-items: center;
+        width: 100%;
         gap: 15px;
     }
 
     .cta-btn {
         width: 100%;
+        /* Remove max-width to let it fit the container safely */
+        max-width: 100%; 
+        box-sizing: border-box;
         justify-content: center;
-        padding: 14px 28px;
+        padding: 14px 20px;
     }
 }
 
+/* Animations */
 @keyframes slideInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
