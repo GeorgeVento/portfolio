@@ -23,12 +23,12 @@ with modern card layout and responsive design.
 }
 
 .cert-item {
-    background: #ffffff;
+    background: var(--secondary-background);
     padding: 40px 30px;
     border-radius: 12px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    border: 1px solid #e0e4e8;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.12);
+    border: 1px solid var(--border-color);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -44,7 +44,7 @@ with modern card layout and responsive design.
     left: 0;
     right: 0;
     height: 3px;
-    background: #007BFF;
+    background: var(--primary-color);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease;
@@ -52,7 +52,7 @@ with modern card layout and responsive design.
 
 .cert-item:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.18);
 }
 
 .cert-item:hover::before {
@@ -62,7 +62,7 @@ with modern card layout and responsive design.
 .cert-icon {
     width: 80px;
     height: 80px;
-    background: #007BFF;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -70,18 +70,18 @@ with modern card layout and responsive design.
     font-size: 2.2em;
     color: white;
     margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
 }
 
 .cert-item h3 {
     font-size: 1.35em;
-    color: #1a1f3a;
+    color: var(--text-color);
     margin: 15px 0;
     font-weight: 700;
 }
 
 .cert-issuer {
-    color: #007BFF;
+    color: var(--primary-color);
     font-size: 0.9em;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -90,7 +90,7 @@ with modern card layout and responsive design.
 }
 
 .cert-item p {
-    color: #555;
+    color: var(--text-secondary);
     font-size: 0.95em;
     line-height: 1.7;
     margin: 0;

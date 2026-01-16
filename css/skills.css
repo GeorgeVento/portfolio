@@ -8,7 +8,7 @@ with icons, hover effects, and responsive design.
 */
 
 .skills-section {
-    background: #f5f7fa;
+    background: var(--background-color);
 }
 
 .skills-grid {
@@ -21,14 +21,14 @@ with icons, hover effects, and responsive design.
 }
 
 .skill-item {
-    background: #ffffff;
+    background: var(--secondary-background);
     padding: 30px 20px;
     border-radius: 12px;
     text-align: center;
     font-weight: 600;
-    color: #007BFF;
-    border: 1px solid #e0e4e8;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.12);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -43,7 +43,7 @@ with icons, hover effects, and responsive design.
 
 .skill-item i {
     font-size: 2.5em;
-    color: #007BFF;
+    color: var(--primary-color);
     transition: all 0.3s ease;
 }
 
@@ -59,22 +59,22 @@ with icons, hover effects, and responsive design.
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 123, 255, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.25), transparent);
     transition: left 0.5s ease;
     pointer-events: none;
 }
 
 .skill-item:hover {
-    background: #007BFF;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
     color: white;
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.2);
+    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.3);
 }
 
 .skill-item:hover i {
-    color: #ffeb3b;
-    transfowhite;
-    transform: scale(1.1
+    color: #fbbf24;
+    transform: scale(1.1);
+}
 
 .skill-item:hover::before {
     left: 100%;

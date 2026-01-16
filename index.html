@@ -312,15 +312,29 @@
     </footer>
 
    <script>
-// Footer visibility on scroll
+// Optimized scroll listener with throttling
+let scrollTimeout;
 window.addEventListener('scroll', () => {
     const footer = document.querySelector('.modern-footer');
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
-        footer.classList.add('show');
-    } else {
-        footer.classList.remove('show');
-    }
-});
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    
+    if (scrollTimeout) clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+        // Footer visibility
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
+            footer.classList.add('show');
+        } else {
+            footer.classList.remove('show');
+        }
+        
+        // Scroll to top button
+        if (window.pageYOffset > 300) {
+            scrollToTopBtn.classList.add('show');
+        } else {
+            scrollToTopBtn.classList.remove('show');
+        }
+    }, 10);
+}, { passive: true });
 
 window.addEventListener('DOMContentLoaded', () => {
     const footer = document.querySelector('.modern-footer');
@@ -386,14 +400,6 @@ function initScrollAnimations() {
 // Scroll to Top Button
 const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        scrollToTopBtn.classList.add('show');
-    } else {
-        scrollToTopBtn.classList.remove('show');
-    }
-});
-
 scrollToTopBtn.addEventListener('click', () => {
     window.scrollTo({
         top: 0,
@@ -408,36 +414,43 @@ const menuOverlay = document.createElement('div');
 menuOverlay.className = 'menu-overlay';
 document.body.appendChild(menuOverlay);
 
+function closeMenu() {
+    navMenu.classList.remove('active');
+    hamburger.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+    menuOverlay.classList.remove('active');
+    document.body.style.paddingRight = '';
+}
+
 hamburger.addEventListener('click', () => {
     const isOpen = navMenu.classList.toggle('active');
+    hamburger.classList.toggle('active', isOpen);
     hamburger.setAttribute('aria-expanded', isOpen);
     
     if (isOpen) {
         menuOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        // Prevent body scroll by adding padding instead of overflow
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+        document.body.style.paddingRight = scrollbarWidth + 'px';
     } else {
-        menuOverlay.classList.remove('active');
-        document.body.style.overflow = 'auto';
+        closeMenu();
     }
 });
 
 // Close menu when overlay is clicked
-menuOverlay.addEventListener('click', () => {
-    navMenu.classList.remove('active');
-    hamburger.setAttribute('aria-expanded', 'false');
-    menuOverlay.classList.remove('active');
-    document.body.style.overflow = 'auto';
-});
+menuOverlay.addEventListener('click', closeMenu);
 
 // Close menu when link is clicked
 const navLinks = navMenu.querySelectorAll('a');
 navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        hamburger.setAttribute('aria-expanded', 'false');
-        menuOverlay.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    });
+    link.addEventListener('click', closeMenu);
+});
+
+// Close menu on escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+        closeMenu();
+    }
 });
 
 // Form Validation with visual feedback

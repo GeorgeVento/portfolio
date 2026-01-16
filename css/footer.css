@@ -18,21 +18,13 @@ Modern footer styling with elegant divider and smooth layout.
     position: relative;
     left: 0;
     width: 100%;
-    padding: 40px 20px;
-    background-color: #ffffff;
-    color: #555;
+    padding: 25px 20px;
+    background-color: var(--footer-bg);
+    color: var(--text-color);
     text-align: center;
-    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.08);
-    border-top: 1px solid #e0e4e8;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1.2s ease, transform 1.2s ease;
+    box-shadow: 0 -1px 10px rgba(59, 130, 246, 0.1);
+    border-top: 1px solid var(--border-color);
     z-index: 1;
-}
-
-.modern-footer.show {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* --- Footer Content --- */
@@ -40,7 +32,7 @@ Modern footer styling with elegant divider and smooth layout.
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
     position: relative;
     z-index: 10;
 }
@@ -51,26 +43,26 @@ Modern footer styling with elegant divider and smooth layout.
     list-style: none;
     padding: 0;
     margin: 0;
-    gap: 15px;
+    gap: 12px;
 }
 
 .socials a {
-    font-size: 20px;
+    font-size: 16px;
     background: transparent;
-    color: #007BFF;
+    color: var(--primary-color);
     display: grid;
     place-items: center;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    border: 2px solid #007BFF;
+    border: 2px solid var(--primary-color);
     transition: all 0.3s ease;
 }
 
 .socials a:hover {
-    background: #007BFF;
+    background: var(--primary-color);
     color: white;
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
 
 /* --- Navigation Links --- */
@@ -96,9 +88,10 @@ Modern footer styling with elegant divider and smooth layout.
 
 /* --- Legal Notes --- */
 .legal, .legal-secondary {
-    font-size: 0.85em;
-    color: #a2b6e1;
-    margin: 2px 0;
+    font-size: 0.8em;
+    color: var(--text-secondary);
+    margin: 1px 0;
+    line-height: 1.3;
 }
 
 .legal-secondary .fa-heart {
@@ -108,25 +101,24 @@ Modern footer styling with elegant divider and smooth layout.
 /* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
     .modern-footer {
-        padding-bottom: 15px;
-        padding-top: 10px;
+        padding: 18px 15px;
     }
 
     .footer-content {
-        gap: 12px;
+        gap: 8px;
     }
 
     .socials {
-        gap: 12px;
+        gap: 10px;
     }
 
     .socials a {
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
     }
 
     .legal, .legal-secondary {
-        font-size: 0.75em;
+        font-size: 0.7em;
     }
 }

@@ -15,18 +15,18 @@ background gradients, and responsive adjustments for mobile.
     grid-template-columns: 1fr 1fr;
     gap: 50px;
     align-items: center;
-    background: #ffffff;
+    background: var(--secondary-background);
     padding: 50px 40px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    border: 1px solid #e0e4e8;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.12);
+    border: 1px solid var(--border-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     animation: fadeInUp 0.6s ease-out;
 }
 
 .about-content:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.18);
 }
 
 @keyframes fadeInUp {
@@ -51,16 +51,16 @@ background gradients, and responsive adjustments for mobile.
     max-width: 350px;
     height: auto;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e0e4e8;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.15);
+    border: 1px solid var(--border-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     object-fit: cover;
-    background-color: #f5f7fa;
+    background-color: var(--secondary-background);
 }
 
 .about-image img:hover {
     transform: scale(1.02);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.25);
 }
 
 .about-text {
@@ -69,7 +69,7 @@ background gradients, and responsive adjustments for mobile.
 
 .about-text p {
     font-size: 1.05em;
-    color: #555;
+    color: var(--text-secondary);
     line-height: 1.8;
     margin: 18px 0;
     font-weight: 400;

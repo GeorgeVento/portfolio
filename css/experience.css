@@ -23,12 +23,12 @@ showcasing expertise areas with icons and technology stacks.
 }
 
 .experience-item {
-    background: #ffffff;
+    background: var(--secondary-background);
     padding: 40px 30px;
     border-radius: 12px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    border: 1px solid #e0e4e8;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.12);
+    border: 1px solid var(--border-color);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -37,13 +37,13 @@ showcasing expertise areas with icons and technology stacks.
 
 .experience-item:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.18);
 }
 
 .exp-icon {
     width: 70px;
     height: 70px;
-    background: #007BFF;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -51,12 +51,12 @@ showcasing expertise areas with icons and technology stacks.
     font-size: 2em;
     color: white;
     margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
 }
 
 .experience-item h3 {
     font-size: 1.35em;
-    color: #1a1f3a;
+    color: var(--text-color);
     margin: 15px 0;
     font-weight: 700;
 }
@@ -70,17 +70,17 @@ showcasing expertise areas with icons and technology stacks.
 }
 
 .tech-stack span {
-    background-color: #f0f4f8;
-    color: #007BFF;
+    background-color: rgba(59, 130, 246, 0.15);
+    color: var(--primary-color);
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.85em;
     font-weight: 600;
-    border: 1px solid #e0e4e8;
+    border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
 .experience-item p {
-    color: #555;
+    color: var(--text-secondary);
     font-size: 0.95em;
     line-height: 1.7;
     margin: 0;
