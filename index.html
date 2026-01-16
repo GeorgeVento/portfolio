@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Developer Portfolio</title>
+    <meta name="description" content="George-Leonidas Ventouratos - Computer Science student & Web Developer. Portfolio showcasing web development, database management, and programming projects.">
+    <meta name="keywords" content="Web Developer, Computer Science, HTML, CSS, JavaScript, PHP, Python, SQL, Portfolio">
+    <meta name="author" content="George-Leonidas Ventouratos">
+    <meta property="og:title" content="George-Leonidas Ventouratos - Developer Portfolio">
+    <meta property="og:description" content="Explore my web development projects, skills, and experience in computer science.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#5b9df9">
+    <title>George-Leonidas Ventouratos | Full Stack Developer Portfolio</title>
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/header.css">
@@ -14,6 +21,7 @@
     <link rel="stylesheet" href="css/certifications.css">
     <link rel="stylesheet" href="css/projects.css">
     <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/cta.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -67,10 +75,10 @@
             
             <div class="about-text">
                 <p>
-                    "A <b>dedicated Computer Science Student</b> specializing in <b>Web Development</b> and <b>Data Analysis (Excel,SQL)</b>. My focus is on solving complex problems and delivering efficient code for functional applications. 
+                    "A <b>dedicated Computer Science Student</b> at the Univers, currently in my 2nd/3rd year, specializing in <b>Web Development</b> and <b>Database Management</b>. I'm passionate about building full-stack applications that solve real problems with clean, maintainable code.
                 </p> 
                 <p>
-                    I am committed to <b>continuous learning</b>, mastering new frameworks and best practices to improve my craft. Let's connect to discuss potential opportunities or collaborations!"
+                    My focus is on combining frontend design with solid backend architecture, from responsive user interfaces to efficient database systems. I'm committed to <b>continuous learning</b>, staying updated with modern frameworks and best practices. Let's connect to discuss opportunities or collaborate on exciting projects!"
                 </p>
                 
                 <div class="cv-download">
@@ -84,52 +92,7 @@
     </div>
 </section>
 
-    <section id="experience" class="section experience-section">
-        <div class="container">
-            <h2>Experience & Expertise</h2>
-            <div class="experience-grid">
-                <div class="experience-item">
-                    <div class="exp-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Web Development</h3>
-                    <div class="tech-stack">
-                        <span>HTML5 & CSS3</span>
-                        <span>JavaScript</span>
-                        <span>PHP</span>
-                        <span>Responsive Design</span>
-                    </div>
-                    <p>Specialized in creating responsive, user-friendly web applications. Experienced in building single-page applications and server-side web development with clean, maintainable code.</p>
-                </div>
-                <div class="experience-item">
-                    <div class="exp-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3>Database Management</h3>
-                    <div class="tech-stack">
-                        <span>SQL</span>
-                        <span>MySQLi</span>
-                        <span>Database Design</span>
-                        <span>Data Management</span>
-                    </div>
-                    <p>Proficient in designing and managing relational databases, creating efficient queries, and implementing secure data solutions. Experienced with database architecture and optimization.</p>
-                </div>
-                <div class="experience-item">
-                    <div class="exp-icon">
-                        <i class="fas fa-puzzle-piece"></i>
-                    </div>
-                    <h3>Programming & Problem Solving</h3>
-                    <div class="tech-stack">
-                        <span>Python</span>
-                        <span>C & C++</span>
-                        <span>Algorithms</span>
-                        <span>Data Structures</span>
-                    </div>
-                    <p>Strong foundation in computer science fundamentals. Experienced in solving complex computational problems using efficient algorithms and optimized data structures.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+
     <section id="certifications" class="section certifications-section">
         <div class="container">
             <h2>Certifications & Achievements</h2>
@@ -148,6 +111,7 @@
     <section id="skills" class="section skills-section">
         <div class="container">
             <h2>Programming Languages & Tools</h2>
+            <p class="skills-subtitle">Core technologies I use to build web applications and solve complex problems.</p>
             <div class="skills-grid">
                 <div class="skill-item">
                     <i class="fab fa-html5"></i>
@@ -240,29 +204,26 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
+    <!-- CTA Section -->
+    <section class="cta-section">
         <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>3+</h3>
-                    <p>Projects Completed</p>
-                </div>
-                <div class="stat-item">
-                    <h3>100%</h3>
-                    <p>Commitment to Excellence</p>
-                </div>
-                <div class="stat-item">
-                    <h3>∞</h3>
-                    <p>Always Learning</p>
+            <div class="cta-content">
+                <h2>Ready to Work Together?</h2>
+                <p>I'm always interested in hearing about new projects and opportunities. Let's connect and create something amazing together.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="cta-btn primary">Get In Touch</a>
+                    <a href="https://github.com/GeorgeVento" target="_blank" class="cta-btn secondary"><i class="fab fa-github"></i> View GitHub</a>
                 </div>
             </div>
         </div>
     </section>
     
 <section id="contact" class="section contact-section">
-    <div class="container contact-wrapper"> 
-        <h2>Get In Touch</h2>
+    <div class="container contact-wrapper">
+        <div class="contact-header">
+            <h2>Get In Touch</h2>
+            <p>Have a question or want to work together? I'd love to hear from you. Drop me a message and I'll get back to you as soon as possible.</p>
+        </div>
         
         <form id="contact-form" class="contact-form"> 
 
@@ -300,12 +261,32 @@
     <div class="footer-divider"></div>
     <footer class="modern-footer">
         <div class="container footer-content">
-            <ul class="socials">
-                <li><a href="https://github.com/GeorgeVento/" target="_blank" class="fa-brands fa-github" title="GitHub"></a></li>
-                <li><a href="https://www.linkedin.com/in/george-leonidas-ventouratos-660709217/" target="_blank" class="fa-brands fa-linkedin-in" title="LinkedIn"></a></li>
-                <li><a href="https://www.instagram.com/geo.vnt/?next=%2F" target="_blank" class="fa-brands fa-instagram" title="Instagram"></a></li>
-            </ul>
+            <div class="footer-section footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="CV_ENG.pdf" download>Download CV</a></li>
+                </ul>
+            </div>
 
+            <div class="footer-section footer-socials">
+                <h4>Connect</h4>
+                <ul class="socials">
+                    <li><a href="https://github.com/GeorgeVento/" target="_blank" class="fa-brands fa-github" title="GitHub"></a></li>
+                    <li><a href="https://www.linkedin.com/in/george-leonidas-ventouratos-660709217/" target="_blank" class="fa-brands fa-linkedin-in" title="LinkedIn"></a></li>
+                    <li><a href="https://www.instagram.com/geo.vnt/?next=%2F" target="_blank" class="fa-brands fa-instagram" title="Instagram"></a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section footer-contact">
+                <h4>Let's Talk</h4>
+                <p><a href="#contact">Get In Touch</a> or find me on social media</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
             <p class="legal">George-Leonidas Ventouratos &copy; 2025 All rights reserved.</p>
             <p class="legal-secondary">Made with <i class="fas fa-heart"></i> and Code.</p>
         </div>
@@ -359,15 +340,17 @@ function initProjectFilter() {
             // Filter and animate projects
             projectCards.forEach(card => {
                 const categories = card.getAttribute('data-category').split(' ');
-                const show = filterValue === 'all' || categories.includes(filterValue);
+                const show = filterValue === 'all' || categories.some(cat => cat.toLowerCase() === filterValue.toLowerCase());
                 
                 card.style.animation = 'none';
                 setTimeout(() => {
                     if (show) {
                         card.classList.remove('hidden');
+                        card.style.display = 'flex';
                         card.style.animation = 'fadeInScale 0.5s ease-out';
                     } else {
                         card.classList.add('hidden');
+                        card.style.display = 'none';
                     }
                 }, 10);
             });

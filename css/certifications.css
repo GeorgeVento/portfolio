@@ -27,7 +27,7 @@ with modern card layout and responsive design.
     padding: 40px 30px;
     border-radius: 12px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.12);
+    box-shadow: 0 4px 20px rgba(91, 157, 249, 0.08);
     border: 1px solid var(--border-color);
     text-align: center;
     display: flex;
@@ -52,7 +52,7 @@ with modern card layout and responsive design.
 
 .cert-item:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.18);
+    box-shadow: 0 8px 30px rgba(91, 157, 249, 0.12);
 }
 
 .cert-item:hover::before {
@@ -70,7 +70,7 @@ with modern card layout and responsive design.
     font-size: 2.2em;
     color: white;
     margin-bottom: 20px;
-    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 4px 20px rgba(91, 157, 249, 0.15);
 }
 
 .cert-item h3 {

@@ -9,7 +9,7 @@ animations, and responsive scaling for mobile devices.
 */
 
 .hero-section {
-    background: linear-gradient(135deg, #0a0e27 0%, #111a3a 100%);
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
     text-align: center;
     padding: 120px 0;
     border-bottom: 1px solid var(--border-color);
@@ -21,8 +21,8 @@ animations, and responsive scaling for mobile devices.
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+    background: radial-gradient(circle at 20% 50%, rgba(91, 157, 249, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(91, 157, 249, 0.03) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -51,22 +51,22 @@ animations, and responsive scaling for mobile devices.
 .cta-button {
     display: inline-block;
     padding: 16px 35px;
-    background: linear-gradient(135deg, var(--primary-color) 0%, #1e40af 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, #3d63d5 100%);
     color: white;
     text-decoration: none;
     border-radius: 8px;
     font-weight: 600;
     font-size: 1.05em;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 4px 20px rgba(91, 157, 249, 0.15);
     border: 2px solid transparent;
     animation: slideInUp 0.8s ease-out 0.4s both;
 }
 
 .cta-button:hover {
-    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+    background: linear-gradient(135deg, #3d63d5 0%, #2d4499 100%);
     transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 8px 30px rgba(91, 157, 249, 0.2);
 }
 
 @keyframes slideInDown {
