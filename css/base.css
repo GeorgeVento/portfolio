@@ -12,8 +12,8 @@ and default heading styles for the entire portfolio.
 :root {
     --primary-color: #007BFF;
     --primary-dark: #0056b3;
-    --background-color: #1A77AD;
-    --secondary-background: #1C94D9;
+    --background-color: #f5f7fa;
+    --secondary-background: #ffffff;
     --text-color: #1a1f3a;
     --text-secondary: #555;
     --header-bg: #ffffff;
